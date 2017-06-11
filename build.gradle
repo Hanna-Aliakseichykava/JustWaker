@@ -1,0 +1,49 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
+}
+
+buildscript {
+     repositories {
+
+        mavenCentral()
+    }
+	
+     dependencies {
+         classpath 'com.android.tools.build:gradle:2.0.0'
+     }
+
+     System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+ }
+
+apply plugin: 'com.android.application'
+ 
+repositories {
+    mavenCentral()
+
+	jcenter()
+}
+
+dependencies {
+     compile fileTree(dir: 'libs', include: '*.jar', exclude: 'android-support-*.jar')
+ 
+     compile 'com.squareup:android-times-square:1.6.5@aar'
+ }
+
+ android {
+     compileSdkVersion 22
+     buildToolsVersion "22.0.1"
+
+     sourceSets {
+         main {
+             manifest.srcFile 'AndroidManifest.xml'
+             res.srcDirs = ['res']
+             assets.srcDirs = ['assets']
+         }
+
+         androidTest.setRoot('test')
+     }
+
+    lintOptions {
+        abortOnError false
+    }
+ }
