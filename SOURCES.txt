@@ -10,14 +10,25 @@ http://startandroid.ru/ru/uroki/vse-uroki-spiskom/113-urok-54-kastomizatsija-spi
 
 http://stackoverflow.com/questions/31915672/broadcast-reciver-compnent-are-not-allow-to-bind-service-how-to-start-text-to-s
 
-http://developer.alexanderklimov.ru/android/views/calendarview.php
-
-http://androidfromhome.com/android-calendar-view/
-
-http://abhiandroid.com/ui/calendarview
 
 
+https://spring.io/guides/gs/gradle-android/
 
-
+https://docs.gradle.org/3.3/userguide/gradle_wrapper.html
 
 https://github.com/square/android-times-square/
+
+https://plugins.gradle.org/plugin/com.greensopinion.gradle-android-eclipse
+
+
+
+The following table lists which version of Gradle is required for each version of the Android plugin for Gradle
+https://developer.android.com/studio/releases/gradle-plugin.html
+
+
+
+gradle wrapper
+
+//gradlew eclipse --stacktrace
+
+gradlew build

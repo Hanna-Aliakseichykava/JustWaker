@@ -24,9 +24,10 @@ public class AlarmUtils {
 
 	public static final String ALARM_PHRASE = "ALARM_PHRASE";
 
-	public static void addAlarm(Context context, Calendar calendar, String label, String phrase, boolean isWeekly) {
+	public static void addAlarm(Context context, Calendar calendar, String label, String phrase,
+								boolean isWeekly, List<String> datesToIgnore) {
 
-		AlarmModel alarm = prepareAlarm(context, calendar, label, phrase, isWeekly);
+		AlarmModel alarm = prepareAlarm(context, calendar, label, phrase, isWeekly, datesToIgnore);
 
 		addSystemAlarm(context, alarm);
 	}
@@ -39,12 +40,14 @@ public class AlarmUtils {
 		addSystemAlarm(context, alarm);
 	}
 
-	private static AlarmModel prepareAlarm(Context context, Calendar calendar, String label, String phrase, boolean isWeekly) {
+	private static AlarmModel prepareAlarm(Context context, Calendar calendar,
+								String label, String phrase, boolean isWeekly,
+								List<String> datesToIgnore) {
 
 		List<AlarmModel> alarms = getAlarms(context);
 		int notificationId = alarms.size() + 1;
 
-		AlarmModel alarm = new AlarmModel(notificationId, calendar, label, phrase, isWeekly);
+		AlarmModel alarm = new AlarmModel(notificationId, calendar, label, phrase, isWeekly, datesToIgnore);
 		saveAlarmInPreferences(context, alarm);
 
 		return alarm;
@@ -166,7 +169,7 @@ public class AlarmUtils {
 		editor.apply();
 	}
 
-	private static JSONObject convertToJsonObject(AlarmModel alarm) {
+	protected static JSONObject convertToJsonObject(AlarmModel alarm) {
 		JSONObject jo = new JSONObject();
 		try {
 			jo.put("id", alarm.getId());
@@ -174,6 +177,13 @@ public class AlarmUtils {
 			jo.put("label", alarm.getLabel());
 			jo.put("phrase", alarm.getPhrase());
 			jo.put("is_weekly", alarm.isWeekly());
+
+			JSONArray array = new JSONArray();
+			for (String str : alarm.getDatesToIgnore()) {
+				array.put(str);
+			}
+			jo.put("dates_to_ignore", array);
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 			Log.e("Convert Alarm to json", "Save error: " + e.getMessage());
@@ -182,7 +192,7 @@ public class AlarmUtils {
 		return jo;
 	}
 
-	private static AlarmModel parseJsonObjectToAlarm(JSONObject jo) {
+	protected static AlarmModel parseJsonObjectToAlarm(JSONObject jo) {
 		AlarmModel alarm = new AlarmModel();
 		try {
 			alarm.setId(jo.getInt("id"));
@@ -190,6 +200,15 @@ public class AlarmUtils {
 			alarm.setLabel(jo.getString("label"));
 			alarm.setPhrase(jo.getString("phrase"));
 			alarm.setWeekly(jo.getBoolean("is_weekly"));
+
+			JSONArray jsonArray = jo.getJSONArray("dates_to_ignore");
+			List<String> datesToIgnore = new ArrayList<String>();
+			for (int i = 0; i < jsonArray.length(); i++) {
+				JSONObject obj = jsonArray.getJSONObject(i);
+				datesToIgnore.add(obj.toString());
+			}
+			alarm.setDatesToIgnore(datesToIgnore);
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 			Log.e("Convert Alarm to json", "Save error: " + e.getMessage());

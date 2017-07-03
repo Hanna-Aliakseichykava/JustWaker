@@ -27,7 +27,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
 		PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "YOUR TAG");
-		// Осуществляем блокировку
+
 		wl.acquire();
 
 		Bundle extras = intent.getExtras();
@@ -37,7 +37,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 			openWakeUpWindow(context, phrase);
 		}
 
-		// Разблокируем поток.
+
 		wl.release();
 	}
 

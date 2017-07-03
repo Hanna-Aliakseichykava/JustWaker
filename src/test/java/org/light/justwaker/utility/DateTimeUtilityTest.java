@@ -1,7 +1,6 @@
-package test.java.org.light.justwaker.utility;
+package org.light.justwaker.utility;
 
 import org.junit.Test;
-import org.light.justwaker.utility.DateTimeUtility;
 
 import java.util.Calendar;
 import static org.junit.Assert.*;
@@ -35,7 +34,12 @@ public class DateTimeUtilityTest {
 
 		//verify date, month and year
 		Calendar currentCalendar = Calendar.getInstance();
-		assertTrue(calendar.compareTo(currentCalendar) > 0);
+		if (currentCalendar.get(Calendar.DAY_OF_WEEK) != calendar.get(Calendar.DAY_OF_WEEK)) {
+			assertTrue(calendar.compareTo(currentCalendar) >= 0);
+		} else {
+			assertTrue(calendar.compareTo(currentCalendar) <= 0);
+		}
+
 
 		assertEquals(DateTimeUtility.calendarToUserString(calendar), "Monday 08:01");
 	}
@@ -68,5 +72,27 @@ public class DateTimeUtilityTest {
 
 
 		assertEquals(DateTimeUtility.calendarToInnerString(calendar), "02-03-2017 08:01");
+	}
+
+	@Test
+	public void testDateFromString() {
+		Calendar calendar = DateTimeUtility.dateFromString("02-03-2017");
+
+		assertEquals(calendar.get(Calendar.YEAR), 2017);
+		assertEquals(calendar.get(Calendar.MONTH), 3 - 1);
+		assertEquals(calendar.get(Calendar.DAY_OF_MONTH), 2);
+
+		assertEquals(DateTimeUtility.dateToInnerString(calendar.getTime()), "02-03-2017");
+	}
+
+	@Test
+	public void testDateFromString_2() {
+		Calendar calendar = DateTimeUtility.dateFromString("12-11-2017");
+
+		assertEquals(calendar.get(Calendar.YEAR), 2017);
+		assertEquals(calendar.get(Calendar.MONTH), 11 - 1);
+		assertEquals(calendar.get(Calendar.DAY_OF_MONTH), 12);
+
+		assertEquals(DateTimeUtility.dateToInnerString(calendar.getTime()), "12-11-2017");
 	}
 }

@@ -31,12 +31,14 @@ public class AlarmManagerActivity extends BaseAlarmViewActivity {
 	public void setTimer(View view) {
 		Context context = this.getApplicationContext();
 		boolean isWeekly = ((CheckBox)findViewById(R.id.checkboxWeeklyAlarm)).isChecked();
-		AlarmUtils.addAlarm(context, getDateTime(), labelEdit.getText().toString(), phraseEdit.getText().toString(), isWeekly);
+		AlarmUtils.addAlarm(context, getDateTime(),
+				labelEdit.getText().toString(), phraseEdit.getText().toString(), isWeekly,
+				datesToIgnore);
 		goBack();
 	}
 
 	public void onClickOpenCalendarButton(View view) {
 		Intent intent = new Intent(AlarmManagerActivity.this, CalendarActivity.class);
-		startActivity(intent);
+		openCalendarView(intent);
 	}
 }

@@ -80,6 +80,18 @@ xmlns:tools="http://schemas.android.com/tools">
              android:text="@string/isWeeklyAlarm"
       />
 
+   <Button
+              android:id="@+id/bt_edit_calendar"
+              android:onClick="onClickOpenCalendarButton"
+              android:layout_marginTop="20dp"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent"
+              android:padding="@dimen/padding_medium"
+              android:text="@string/btCalendar"
+            android:layout_below="@+id/btn_test_corrected_phrase"
+            android:layout_alignLeft="@+id/btn_test_corrected_phrase"
+            android:layout_alignStart="@+id/btn_test_corrected_phrase" />
+
     <Button 
         android:id="@+id/btSave"
         android:onClick="updateAlarm"
@@ -88,9 +100,9 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_width="match_parent"
         android:padding="@dimen/padding_medium"
         android:text="@string/btSaveCorrectedAlarm"
-        android:layout_below="@+id/btn_test_corrected_phrase"
-        android:layout_alignLeft="@+id/btn_test_corrected_phrase"
-        android:layout_alignStart="@+id/btn_test_corrected_phrase" />
+        android:layout_below="@+id/bt_edit_calendar"
+        android:layout_alignLeft="@+id/bt_edit_calendar"
+        android:layout_alignStart="@+id/bt_edit_calendar" />
 
 </LinearLayout>
 

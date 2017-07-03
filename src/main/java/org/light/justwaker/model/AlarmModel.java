@@ -1,12 +1,12 @@
 package org.light.justwaker.model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import org.light.justwaker.utility.DateTimeUtility;
 
 public class AlarmModel implements Comparable<AlarmModel> {
-
-	//TDOD:? очистить и восстановить после перезагрузки
 
 	private int id;
 
@@ -18,15 +18,21 @@ public class AlarmModel implements Comparable<AlarmModel> {
 
 	private String phrase;
 
+	private List<String> datesToIgnore = new ArrayList<String>();
+
 	public AlarmModel() {
 	}
 
-	public AlarmModel(int id, Calendar calendar, String label, String phrase, boolean isWeekly) {
+	public AlarmModel(int id, Calendar calendar, String label, String phrase, boolean isWeekly,
+					  List<String> datesToIgnore) {
 		this.id = id;
 		this.dateTime = DateTimeUtility.calendarToInnerString(calendar);
 		this.label = label;
 		this.phrase = phrase;
 		this.isWeekly = isWeekly;
+
+		this.datesToIgnore.clear();
+		this.datesToIgnore.addAll(datesToIgnore);
 	}
 
 	public int getId() {
@@ -75,6 +81,14 @@ public class AlarmModel implements Comparable<AlarmModel> {
 
 	public void setPhrase(String phrase) {
 		this.phrase = phrase;
+	}
+
+	public List<String> getDatesToIgnore() {
+		return datesToIgnore;
+	}
+
+	public void setDatesToIgnore(List<String> datesToIgnore) {
+		this.datesToIgnore = datesToIgnore;
 	}
 
 	@Override

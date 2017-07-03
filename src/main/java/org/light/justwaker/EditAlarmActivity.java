@@ -83,8 +83,14 @@ public class EditAlarmActivity extends BaseAlarmViewActivity {
 		alarm.setLabel(labelEdit.getText().toString());
 		alarm.setPhrase(phraseEdit.getText().toString());
 		alarm.setWeekly(isWeekly);
+		alarm.setDatesToIgnore(datesToIgnore);
 
 		AlarmUtils.updateAlarm(context, alarm);
 		goBack();
+	}
+
+	public void onClickOpenCalendarButton(View view) {
+		Intent intent = new Intent(EditAlarmActivity.this, CalendarActivity.class);
+		openCalendarView(intent);
 	}
 }

@@ -4,13 +4,19 @@ import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Locale;
+
+import java.util.Date;
 
 public class DateTimeUtility {
 
 	private static final String DATE_TIME_FORMAT = "dd-MM-yyyy HH:mm";
 	private static final String DATE_TIME_TEMPLATE = "%02d-%02d-%4d %02d:%02d";
-	private static final Locale LOCALE = Locale.US;
+	private static final Locale LOCALE = Locale.ENGLISH;
+
+	private static final String DATE_FORMAT = "dd-MM-yyyy";
 
 	public static Calendar calendarFromDateTime(int dayOfWeek, int hourOfDay, int minute) {
 		Calendar calendar = Calendar.getInstance();
@@ -26,9 +32,10 @@ public class DateTimeUtility {
 	}
 
 	public static Calendar calendarFromDateTime(String dateTime) {
+		SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_FORMAT, LOCALE);
+
 		Calendar calendar = Calendar.getInstance();
 
-		SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_FORMAT, LOCALE);
 		try {
 			calendar.setTime(sdf.parse(dateTime));
 		} catch (ParseException e) {
@@ -63,5 +70,41 @@ public class DateTimeUtility {
 		DateFormatSymbols symbols = new DateFormatSymbols(LOCALE);
 		String weekday = symbols.getWeekdays()[dayOfWeek];
 		return String.format("%s %02d:%02d", weekday, hour, minute);
+	}
+
+	/* Dates */
+
+	public static Calendar dateFromString(String dateStr) {
+		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+		try {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(sdf.parse(dateStr));
+			return calendar;
+		} catch (ParseException e) {
+			throw new RuntimeException("Date parse exception: " + e);
+		}
+	}
+
+	public static String dateToInnerString(Date date) {
+		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+		return sdf.format(date);
+	}
+
+	public static ArrayList<String> datesToInnerStrings(List<Date> dates) {
+		ArrayList<String> target = new ArrayList<String>();
+
+		for(Date date : dates) {
+			target.add(dateToInnerString(date));
+		}
+		return target;
+	}
+
+	public static List<Date> datesFromStrings(List<String> strDates) {
+		List<Date> target = new ArrayList<Date>();
+
+		for(String strDate : strDates) {
+			target.add(dateFromString(strDate).getTime());
+		}
+		return target;
 	}
 }
