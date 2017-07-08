@@ -42,7 +42,7 @@ dependencies {
      compile 'com.squareup:android-times-square:1.6.5@aar'
 
      testCompile 'junit:junit:4.12'
-     testCompile 'org.robolectric:robolectric:3.2'
+     testCompile 'org.robolectric:robolectric:3.2.1'
 
  }
  

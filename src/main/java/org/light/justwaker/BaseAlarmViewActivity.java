@@ -30,7 +30,7 @@ public class BaseAlarmViewActivity extends BaseMenuActivity {
 
 	public void initDateTimeControls() {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item_day_picker, getResources().getStringArray(R.array.days_of_week));
-		spinSelectedDay.setAdapter(adapter); 
+		spinSelectedDay.setAdapter(adapter);
 	}
 
 	public void testVoice(View v) {

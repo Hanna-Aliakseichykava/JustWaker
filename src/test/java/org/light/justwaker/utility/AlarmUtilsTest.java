@@ -17,9 +17,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.runner.RunWith;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
 @RunWith(RobolectricTestRunner.class)
-//@Config(manifest = Config.NONE, sdk = 23)
+@Config(manifest = Config.NONE, sdk = 23)
 public class AlarmUtilsTest {
 
     int notificationId = 1;
@@ -28,6 +29,7 @@ public class AlarmUtilsTest {
     String label = "Label 1";
     String phrase = "Phrase 1";
     List<String> datesToIgnore = Arrays.asList(new String [] {"25-11-2017", "26-12-2017"});
+    String expectedDatesToIgnoreJson = "[\"25-11-2017\",\"26-12-2017\"]";
 
     @Test
     public void testConvertToJsonObject() throws Exception {
@@ -37,12 +39,12 @@ public class AlarmUtilsTest {
         AlarmModel alarm = new AlarmModel(notificationId, calendar, label, phrase, isWeekly, datesToIgnore);
         JSONObject jo = AlarmUtils.convertToJsonObject(alarm);
 
-        assertEquals(jo.getInt("id"), notificationId);
-        assertEquals(jo.getString("date_time"), dateTime);
-        assertEquals(jo.getString("label"), label);
-        assertEquals(jo.getString("phrase"), phrase);
-        assertEquals(jo.getBoolean("is_weekly"), isWeekly);
-        assertEquals(jo.getJSONArray("dates_to_ignore").toString(), datesToIgnore.toString());
+        assertEquals(notificationId, jo.getInt("id"));
+        assertEquals(dateTime, jo.getString("date_time"));
+        assertEquals(label, jo.getString("label"));
+        assertEquals(phrase, jo.getString("phrase"));
+        assertEquals(isWeekly, jo.getBoolean("is_weekly"));
+        assertEquals(expectedDatesToIgnoreJson, jo.getJSONArray("dates_to_ignore").toString());
     }
 
     @Test
@@ -65,11 +67,11 @@ public class AlarmUtilsTest {
 
         AlarmModel alarm = AlarmUtils.parseJsonObjectToAlarm(jo);
 
-        assertEquals(alarm.getId(), notificationId);
-        assertEquals(alarm.getDateTime(), dateTime);
-        assertEquals(alarm.getLabel(), label);
-        assertEquals(alarm.getPhrase(), phrase);
-        assertEquals(alarm.isWeekly(), isWeekly);
-        assertEquals(alarm.getDatesToIgnore(), datesToIgnore);
+        assertEquals(notificationId, alarm.getId());
+        assertEquals(dateTime, alarm.getDateTime());
+        assertEquals(label, alarm.getLabel());
+        assertEquals(phrase, alarm.getPhrase());
+        assertEquals(isWeekly, alarm.isWeekly());
+        assertEquals(datesToIgnore, alarm.getDatesToIgnore());
     }
 }

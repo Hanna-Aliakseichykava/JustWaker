@@ -3,6 +3,7 @@ package org.light.justwaker;
 import java.util.Calendar;
 
 import org.light.justwaker.model.AlarmModel;
+import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.AlarmUtils;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 public class EditAlarmActivity extends BaseAlarmViewActivity {
 
@@ -58,9 +60,11 @@ public class EditAlarmActivity extends BaseAlarmViewActivity {
 				int hour = calendar.get(Calendar.HOUR_OF_DAY);
 				int minute = calendar.get(Calendar.MINUTE);
 
-				spinSelectedDay.setSelection(dayOfWeek);
+				spinSelectedDay.setSelection(DayOfWeek.getIndexByNumber(dayOfWeek));
 				tpSelectedTime.setCurrentHour(hour);
 				tpSelectedTime.setCurrentMinute(minute);
+
+				datesToIgnore = (ArrayList)alarm.getDatesToIgnore();
 			} else {
 				Log.e(TAG, "Alarm is not found by id: " + alarmId);
 				Toast.makeText(this, "Alarm is not found by id: " + alarmId, Toast.LENGTH_SHORT).show();

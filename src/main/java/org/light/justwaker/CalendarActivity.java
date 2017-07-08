@@ -19,7 +19,10 @@ import com.squareup.timessquare.CalendarPickerView.SelectionMode;
 
 public class CalendarActivity extends Activity {
 
+	public static final String CALENDAR_ACTIVITY = "CALENDAR_ACTIVITY";
+
 	private CalendarPickerView calendar = null;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,7 @@ public class CalendarActivity extends Activity {
 
 		ArrayList<String> selectedDates = intent.getStringArrayListExtra(AlarmManagerActivity.SELECTED_DATES_PARAMETER);
 
-		Toast.makeText(this, "%%% " + selectedDates.toString(), Toast.LENGTH_LONG).show();
+		Log.i(CALENDAR_ACTIVITY, "SELECTED: " + selectedDates.toString());
 
 		Calendar nextYear = Calendar.getInstance();
 		nextYear.add(Calendar.YEAR, 1);
@@ -41,8 +44,8 @@ public class CalendarActivity extends Activity {
 		calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
 
 		calendar.init(today, nextYear.getTime())
-				.withSelectedDates(DateTimeUtility.datesFromStrings(selectedDates))
-				.inMode(SelectionMode.MULTIPLE);
+				.inMode(SelectionMode.MULTIPLE)
+				.withSelectedDates(DateTimeUtility.datesFromStrings(selectedDates));
 	}
 
 	public void onCloseCalendar(View view) {

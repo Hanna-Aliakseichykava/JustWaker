@@ -97,6 +97,7 @@ public class AlarmModel implements Comparable<AlarmModel> {
 		if(isWeekly) {
 			name += " weekly";
 		}
+
 		return name;
 	}
 

@@ -7,6 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.light.justwaker.AlarmManagerActivity;
 import org.light.justwaker.listeners.AlarmManagerBroadcastReceiver;
 import org.light.justwaker.model.AlarmModel;
 
@@ -57,13 +58,16 @@ public class AlarmUtils {
 
 		Intent intent = new Intent(context, AlarmManagerBroadcastReceiver.class);
 		intent.putExtra(ALARM_PHRASE, alarm.getPhrase());
+		intent.putStringArrayListExtra(AlarmManagerActivity.SELECTED_DATES_PARAMETER,
+				(ArrayList<String>) alarm.getDatesToIgnore());
 
 		AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		PendingIntent pendingIntent = PendingIntent.getBroadcast(context, alarm.getId(), intent,
 				PendingIntent.FLAG_CANCEL_CURRENT);
 
 		if(alarm.isWeekly()) {
-			int weekInterval= 7 * 24 * 60 * 60 * 1000;
+			//int weekInterval= 7 * 24 * 60 * 60 * 1000;
+			long weekInterval= 7 * AlarmManager.INTERVAL_DAY;
 			alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarm.getCalendar().getTimeInMillis(), weekInterval, pendingIntent);
 		} else {
 			alarmManager.set(AlarmManager.RTC_WAKEUP, alarm.getCalendar().getTimeInMillis(), pendingIntent);
@@ -92,10 +96,10 @@ public class AlarmUtils {
 		}
 	}
 
-	public static boolean hasAlarm(Context context, Intent intent, int notificationId) {
+	/*public static boolean hasAlarm(Context context, Intent intent, int notificationId) {
 		return PendingIntent.getBroadcast(context,
 			notificationId, intent, PendingIntent.FLAG_NO_CREATE) != null;
-	}
+	}*/
 
 	private static void saveAlarmInPreferences(Context context, AlarmModel alarm) {
 		List<AlarmModel> alarms = getAlarms(context);
@@ -116,7 +120,7 @@ public class AlarmUtils {
 		saveAlarmsInPreferences(context, alarms);
 	}
 
-	public static List<String> getAlarmNames(Context context) {
+	/*public static List<String> getAlarmNames(Context context) {
 		List<AlarmModel> alarms = getAlarms(context);
 
 		List<String> alarmNames = new ArrayList<>();
@@ -124,7 +128,7 @@ public class AlarmUtils {
 			alarmNames.add(alarm.toString());
 		}
 		return alarmNames;
-	}
+	}*/
 
 	public static AlarmModel getAlarmById(Context context, int id) {
 		for (AlarmModel alarm : getAlarms(context)) {
@@ -204,8 +208,8 @@ public class AlarmUtils {
 			JSONArray jsonArray = jo.getJSONArray("dates_to_ignore");
 			List<String> datesToIgnore = new ArrayList<String>();
 			for (int i = 0; i < jsonArray.length(); i++) {
-				JSONObject obj = jsonArray.getJSONObject(i);
-				datesToIgnore.add(obj.toString());
+				String str = jsonArray.getString(i);
+				datesToIgnore.add(str);
 			}
 			alarm.setDatesToIgnore(datesToIgnore);
 

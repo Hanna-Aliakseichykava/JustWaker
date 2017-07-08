@@ -107,4 +107,30 @@ public class DateTimeUtility {
 		}
 		return target;
 	}
+
+	private static List<Calendar> calendarsFromStrings(List<String> strDates) {
+		List<Calendar> target = new ArrayList<Calendar>();
+
+		for(String strDate : strDates) {
+			target.add(dateFromString(strDate));
+		}
+		return target;
+	}
+
+	private static boolean containsDay(List<Calendar> dates, Calendar date) {
+		for(Calendar calendar : dates) {
+			if(date.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)
+					&& date.get(Calendar.MONTH) == calendar.get(Calendar.MONTH)
+					&& date.get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean containsToday(List<String> strDates) {
+		List<Calendar> dates = DateTimeUtility.calendarsFromStrings(strDates);
+		Calendar today = Calendar.getInstance();
+		return containsDay(dates, today);
+	}
 }

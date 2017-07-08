@@ -1,6 +1,7 @@
 package org.light.justwaker;
 
 import org.light.justwaker.R;
+import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.AlarmUtils;
 
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.CheckBox;
+
+import java.util.Calendar;
 
 public class AlarmManagerActivity extends BaseAlarmViewActivity {
 
@@ -25,6 +28,7 @@ public class AlarmManagerActivity extends BaseAlarmViewActivity {
 		spinSelectedDay = (Spinner)findViewById(R.id.spinSelectedDay);
 		tpSelectedTime = (TimePicker)findViewById(R.id.tpSelectedTime);
 		initDateTimeControls();
+		spinSelectedDay.setSelection(DayOfWeek.getIndexByNumber(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)));
 	}
 
 	// Button listeners

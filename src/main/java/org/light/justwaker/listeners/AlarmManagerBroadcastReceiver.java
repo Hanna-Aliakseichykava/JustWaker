@@ -1,15 +1,11 @@
 package org.light.justwaker.listeners;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 
-import org.light.justwaker.AlarmsListActivity;
-import org.light.justwaker.EditAlarmActivity;
+import org.light.justwaker.AlarmManagerActivity;
 import org.light.justwaker.WakeUpActivity;
-import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.utility.AlarmUtils;
-import org.light.justwaker.utility.SpeechUtility;
+import org.light.justwaker.utility.DateTimeUtility;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,7 +13,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.util.Log;
-import android.widget.Toast;
 
 public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 
@@ -33,8 +28,16 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 		Bundle extras = intent.getExtras();
 		if (extras != null && extras.getString(AlarmUtils.ALARM_PHRASE) != null) {
 			String phrase = extras.getString(AlarmUtils.ALARM_PHRASE) + " ";
-			Log.i(TAG, "Alarm Phrase: " + phrase);
-			openWakeUpWindow(context, phrase);
+			ArrayList<String> datesToDeselect = intent.getStringArrayListExtra(AlarmManagerActivity.SELECTED_DATES_PARAMETER);
+			Log.i(TAG, "Alarm Phrase: " + phrase + ", EXCLUDED: " + datesToDeselect);
+
+			if(DateTimeUtility.containsToday(datesToDeselect)) {
+				Log.i(TAG, "Skip wake up");
+			} else {
+				Log.i(TAG, "Open Wake Up Window");
+				openWakeUpWindow(context, phrase);
+			}
+
 		}
 
 
