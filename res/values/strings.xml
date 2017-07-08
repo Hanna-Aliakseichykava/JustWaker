@@ -12,6 +12,8 @@
     <string name="about_title">About</string>
     <string name="about_text">App Description Here...</string>
 
+    <string name="wake_up_text">Wake up text Here...</string>
+
     <string name="title_activity_main">JustWaker</string>
 
     <string name="title_activity_alarm_manager">Add Alarm</string>

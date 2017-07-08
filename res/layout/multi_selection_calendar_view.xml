@@ -15,7 +15,8 @@
        android:padding="@dimen/padding_medium"
        android:text="@string/btSaveAndBack"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+       android:layout_height="wrap_content"
+       android:background="@color/redirect_button"/>
 
    <com.squareup.timessquare.CalendarPickerView
     android:id="@+id/calendar_view"
