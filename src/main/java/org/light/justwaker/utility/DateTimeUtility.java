@@ -18,6 +18,15 @@ public class DateTimeUtility {
 
 	private static final String DATE_FORMAT = "dd-MM-yyyy";
 
+	public static List<Calendar> calendarsFromDateTime(List<Integer> daysOfWeek, int hourOfDay, int minute) {
+		List<Calendar> target = new ArrayList<Calendar>();
+
+		for(int dayOfWeek : daysOfWeek) {
+			target.add(calendarFromDateTime(dayOfWeek, hourOfDay, minute));
+		}
+		return target;
+	}
+
 	public static Calendar calendarFromDateTime(int dayOfWeek, int hourOfDay, int minute) {
 		Calendar calendar = Calendar.getInstance();
 
@@ -29,6 +38,15 @@ public class DateTimeUtility {
 		calendar.set(Calendar.MINUTE, minute);
 
 		return calendar;
+	}
+
+	public static List<Calendar> calendarsFromDateTime(List<String> dates) {
+		List<Calendar> target = new ArrayList<Calendar>();
+
+		for(String dateTime : dates) {
+			target.add(calendarFromDateTime(dateTime));
+		}
+		return target;
 	}
 
 	public static Calendar calendarFromDateTime(String dateTime) {
@@ -43,6 +61,15 @@ public class DateTimeUtility {
 		}
 
 		return calendar;
+	}
+
+	public static List<String> calendarsToInnerStrings(List<Calendar> calendars) {
+		List<String> target = new ArrayList<String>();
+
+		for(Calendar calendar : calendars) {
+			target.add(calendarToInnerString(calendar));
+		}
+		return target;
 	}
 
 	public static String calendarToInnerString(Calendar c) {

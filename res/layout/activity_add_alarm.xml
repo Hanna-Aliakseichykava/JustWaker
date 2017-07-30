@@ -19,7 +19,7 @@
 
         <Button
             android:id="@+id/btStart"
-            android:onClick="setTimer"
+            android:onClick="setAlarm"
             android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"

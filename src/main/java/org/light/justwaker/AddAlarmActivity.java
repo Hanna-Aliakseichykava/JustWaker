@@ -1,5 +1,6 @@
 package org.light.justwaker;
 
+import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.AlarmUtils;
 
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.CheckBox;
+
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class AddAlarmActivity extends BaseAlarmViewActivity {
@@ -21,19 +24,23 @@ public class AddAlarmActivity extends BaseAlarmViewActivity {
 		setContentView(R.layout.activity_add_alarm);
 
 		initControls();
-		//TODO: set selection
 
-		spinSelectedDay.setSelection(DayOfWeek.getIndexByNumber(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)));
-
+		setSelectedWeekDays(Arrays.asList(new Integer [] {Calendar.getInstance().get(Calendar.DAY_OF_WEEK)}));
 	}
 
 	// Button listeners
-	public void setTimer(View view) {
+	public void setAlarm(View view) {
 		Context context = this.getApplicationContext();
-		boolean isWeekly = ((CheckBox)findViewById(R.id.checkboxWeeklyAlarm)).isChecked();
+
+		AlarmModel alarm = buildAlarm();
+
+		/*boolean isWeekly = ((CheckBox)findViewById(R.id.checkboxWeeklyAlarm)).isChecked();
 		AlarmUtils.addAlarm(context, getDateTime(),
 				labelEdit.getText().toString(), phraseEdit.getText().toString(), isWeekly,
-				datesToIgnore);
+				datesToIgnore);*/
+
+		AlarmUtils.addAlarm(context, alarm);
+
 		goBack();
 	}
 

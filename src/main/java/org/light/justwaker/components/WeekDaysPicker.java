@@ -58,7 +58,7 @@ public class WeekDaysPicker {
         return buttons;
     }
 
-    public List<Integer> getDayNumbers() {
+    public List<Integer> getSelectedDayNumbers() {
         List<Integer> numbers = new ArrayList<Integer>();
         for(int i = 0; i < buttons.size(); i++) {
             ToggleButton btn = buttons.get(i);
@@ -67,5 +67,13 @@ public class WeekDaysPicker {
             }
         }
         return numbers;
+    }
+
+    public void setSelectedWeekDays(List<Integer> numbers) {
+        for(int i = 0; i < numbers.size(); i++) {
+            int index = DayOfWeek.getIndexByNumber(i);
+            ToggleButton btn = buttons.get(index);
+            btn.setChecked(true);
+        }
     }
 }

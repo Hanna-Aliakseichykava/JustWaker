@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.AlarmUtils;
+import org.light.justwaker.utility.DateTimeUtility;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,14 +51,14 @@ public class EditAlarmActivity extends BaseAlarmViewActivity {
 				phraseEdit.setText(alarm.getPhrase());
 				isWeeklyCheckbox.setChecked(alarm.isWeekly());
 
-				Calendar calendar = alarm.getCalendar();
-				int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+				Calendar calendar = alarm.getOneCalendar();
 				int hour = calendar.get(Calendar.HOUR_OF_DAY);
 				int minute = calendar.get(Calendar.MINUTE);
 
-				spinSelectedDay.setSelection(DayOfWeek.getIndexByNumber(dayOfWeek));
 				tpSelectedTime.setCurrentHour(hour);
 				tpSelectedTime.setCurrentMinute(minute);
+
+				setSelectedWeekDays(alarm.getDaysOfWeek());
 
 				datesToIgnore = (ArrayList)alarm.getDatesToIgnore();
 			} else {
@@ -75,13 +77,8 @@ public class EditAlarmActivity extends BaseAlarmViewActivity {
 	// Button listeners
 	public void updateAlarm(View view) {
 		Context context = this.getApplicationContext();
-		boolean isWeekly = ((CheckBox)findViewById(R.id.checkboxWeeklyAlarm)).isChecked();
 
-		alarm.setDateTime(getDateTime());
-		alarm.setLabel(labelEdit.getText().toString());
-		alarm.setPhrase(phraseEdit.getText().toString());
-		alarm.setWeekly(isWeekly);
-		alarm.setDatesToIgnore(datesToIgnore);
+		fillAlarmInfo(alarm);
 
 		AlarmUtils.updateAlarm(context, alarm);
 		goBack();

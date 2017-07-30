@@ -10,7 +10,8 @@ public class AlarmModel implements Comparable<AlarmModel> {
 
 	private int id;
 
-	private String dateTime;
+	private List<Integer> daysOfWeek;
+	private List<String> datesToAlarm;
 
 	private boolean isWeekly;
 
@@ -23,24 +24,21 @@ public class AlarmModel implements Comparable<AlarmModel> {
 	public AlarmModel() {
 	}
 
-	public AlarmModel(int id, Calendar calendar, String label, String phrase, boolean isWeekly,
+	/*public AlarmModel(int id, List<Integer> daysOfWeek, List<Calendar> calendars, String label, String phrase, boolean isWeekly,
 					  List<String> datesToIgnore) {
 		this.id = id;
-		this.dateTime = DateTimeUtility.calendarToInnerString(calendar);
+		this.daysOfWeek = new ArrayList<Integer>(daysOfWeek);
+		this.datesToAlarm = DateTimeUtility.calendarsToInnerStrings(calendars);
 		this.label = label;
 		this.phrase = phrase;
 		this.isWeekly = isWeekly;
 
 		this.datesToIgnore.clear();
 		this.datesToIgnore.addAll(datesToIgnore);
-	}
+	}*/
 
 	public int getId() {
 		return id;
-	}
-
-	public String getDateTime() {
-		return dateTime;
 	}
 
 	public String getLabel() {
@@ -51,20 +49,8 @@ public class AlarmModel implements Comparable<AlarmModel> {
 		return isWeekly;
 	}
 
-	public Calendar getCalendar() {
-		return DateTimeUtility.calendarFromDateTime(dateTime);
-	}
-
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public void setDateTime(String dateTime) {
-		this.dateTime = dateTime;
-	}
-
-	public void setDateTime(Calendar calendar) {
-		this.dateTime = DateTimeUtility.calendarToInnerString(calendar);
 	}
 
 	public void setLabel(String label) {
@@ -91,9 +77,50 @@ public class AlarmModel implements Comparable<AlarmModel> {
 		this.datesToIgnore = datesToIgnore;
 	}
 
+
+	public Calendar getOneCalendar() {
+		return DateTimeUtility.calendarFromDateTime(datesToAlarm.get(0));
+	}
+
+	public List<Calendar> getCalendars() {
+		return DateTimeUtility.calendarsFromDateTime(datesToAlarm);
+	}
+
+	/*public List<String> getDatesToAlarm() {
+            return datesToAlarm;
+        }
+        public void setDatesToAlarm(List<String> datesToAlarm) {
+            this.datesToAlarm = datesToAlarm;
+        }*/
+
+	public void setDatesToAlarm(List<Calendar> calendars) {
+		setRawDatesToAlarm(DateTimeUtility.calendarsToInnerStrings(calendars));
+	}
+
+	public void setRawDatesToAlarm(List<String> dates) {
+		this.datesToAlarm = dates;
+	}
+
+
+	public List<Integer> getDaysOfWeek() {
+		return daysOfWeek;
+	}
+
+	public void setDaysOfWeek(List<Integer> daysOfWeek) {
+		this.daysOfWeek = daysOfWeek;
+	}
+
+	public List<String> getDatesToAlarm() {
+		return datesToAlarm;
+	}
+
+	/*public void setDatesToAlarm(List<String> datesToAlarm) {
+		this.datesToAlarm = datesToAlarm;
+	}*/
+
 	@Override
 	public String toString() {
-		String name = dateTime + " " + label;
+		String name = DayOfWeek.getShortCodesByNumbers(daysOfWeek) + " " + label;
 		if(isWeekly) {
 			name += " weekly";
 		}
@@ -103,7 +130,7 @@ public class AlarmModel implements Comparable<AlarmModel> {
 
 	@Override
 	public int compareTo(AlarmModel other) {
-		int result = this.getCalendar().compareTo(other.getCalendar());
+		int result = this.getLabel().compareTo(other.getLabel());
 		if(result != 0) {
 			return result;
 		} else {

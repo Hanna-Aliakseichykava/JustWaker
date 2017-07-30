@@ -4,7 +4,7 @@
     <color name="inner_button">#c7d0dd</color>
 
     <color name="day_selected_text">#ef8fef</color>
-    <color name="day_deselected_text">@android:color/darker_gray</color>
+    <color name="day_deselected_text">#000000</color>
 
     <color name="day_selected_bg">#00FF00</color>
     <color name="day_deselected_bg">#ff0000</color>
