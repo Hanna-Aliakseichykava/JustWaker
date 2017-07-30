@@ -38,6 +38,15 @@ public enum DayOfWeek {
 		throw new RuntimeException("Day [" + number + "] is not found");
 	}
 
+	public static int getNumberByIndex(int index) {
+		for(DayOfWeek day : values()) {
+			if(day.getIndex() == index) {
+				return day.getNumber();
+			}
+		}
+		throw new RuntimeException("Index [" + index + "] is not found");
+	}
+
 	public int getNumber() {
 		return number;
 	}

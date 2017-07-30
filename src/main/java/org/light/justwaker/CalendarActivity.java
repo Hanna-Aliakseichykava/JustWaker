@@ -32,7 +32,7 @@ public class CalendarActivity extends Activity {
 
 		Intent intent = this.getIntent();
 
-		ArrayList<String> selectedDates = intent.getStringArrayListExtra(AlarmManagerActivity.SELECTED_DATES_PARAMETER);
+		ArrayList<String> selectedDates = intent.getStringArrayListExtra(AddAlarmActivity.SELECTED_DATES_PARAMETER);
 
 		Log.i(CALENDAR_ACTIVITY, "SELECTED: " + selectedDates.toString());
 
@@ -52,7 +52,7 @@ public class CalendarActivity extends Activity {
 		Toast.makeText(this, calendar.getSelectedDates().toString(), Toast.LENGTH_LONG).show();
 
 		Intent output = new Intent();
-		output.putStringArrayListExtra(AlarmManagerActivity.SELECTED_DATES_PARAMETER,
+		output.putStringArrayListExtra(AddAlarmActivity.SELECTED_DATES_PARAMETER,
 				DateTimeUtility.datesToInnerStrings(calendar.getSelectedDates()));
 
 		setResult(RESULT_OK, output);

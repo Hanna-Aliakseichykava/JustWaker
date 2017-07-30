@@ -1,17 +1,21 @@
-<ScrollView 
-      xmlns:android="http://schemas.android.com/apk/res/android"
-      android:id="@+id/scroll" 
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="@drawable/background_color">
-
-      <LinearLayout android:layout_height="match_parent"
-android:layout_width="match_parent" android:orientation="vertical"
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
 
     <Spinner android:id="@+id/spinSelectedDay" android:layout_width="fill_parent" android:layout_height="wrap_content">
     </Spinner>
+
+
+        <LinearLayout android:id="@+id/weekDaysSelectionWrapper"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        </LinearLayout>
 
     <TimePicker android:id="@+id/tpSelectedTime"
         android:layout_width="wrap_content"
@@ -28,7 +32,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-     <EditText
+    <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/in_label"
@@ -65,16 +69,15 @@ xmlns:tools="http://schemas.android.com/tools">
         android:onClick="testVoice"
         android:layout_below="@+id/in_phrase"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/inner_button"/>
+        android:layout_alignParentStart="true"/>
 
-     <CheckBox android:id="@+id/checkboxWeeklyAlarm"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/isWeeklyAlarm"
-      />
+    <CheckBox android:id="@+id/checkboxWeeklyAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/isWeeklyAlarm"
+        />
 
-    <Button 
+    <Button
         android:id="@+id/btCalendar"
         android:onClick="onClickOpenCalendarButton"
         android:layout_marginTop="20dp"
@@ -84,22 +87,6 @@ xmlns:tools="http://schemas.android.com/tools">
         android:text="@string/btCalendar"
         android:layout_below="@+id/btTestPhrase"
         android:layout_alignLeft="@+id/btTestPhrase"
-        android:layout_alignStart="@+id/btTestPhrase"
-        android:background="@color/inner_button"/>
-
-    <Button 
-        android:id="@+id/btStart"
-        android:onClick="setTimer"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/btStart"
-        android:layout_below="@+id/btCalendar"
-        android:layout_alignLeft="@+id/btCalendar"
-        android:layout_alignStart="@+id/btCalendar"
-        android:background="@color/redirect_button"/>
+        android:layout_alignStart="@+id/btTestPhrase"/>
 
 </LinearLayout>
-
-</ScrollView>

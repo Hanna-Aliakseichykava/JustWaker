@@ -5,9 +5,13 @@
     <string name="action_about">About the program</string>
 
 	<string name="btBack">Back</string>
-	<string name="btCancel">Cancel</string>
 	<string name="btEdit">Edit</string>
     <string name="btSaveAndBack">Save and Back</string>
+    <string name="btClose">OK</string>
+
+    <string name="btAddAlarm">Add Alarm</string>
+    <string name="btCancel">Cancel</string>
+    <string name="btCancelAll">Cancel All Alarms</string>
 
     <string name="about_title">About</string>
     <string name="about_text">App Description Here...</string>
@@ -16,25 +20,21 @@
 
     <string name="title_activity_main">JustWaker</string>
 
-    <string name="title_activity_alarm_manager">Add Alarm</string>
+    <string name="title_activity_add_alarm">Add Alarm</string>
     <string name="btStart">Set up Alarm Clock</string>
-    <string name="btCancelAll">Cancel All Alarms</string>
-    <string name="btOneTime">Set up One Time Alarm</string>
+
+    <string name="edit_alarm_title">Edit Alarm</string>
+    <string name="btSaveCorrectedAlarm">Save Alarm</string>
+
     <string name="btSelectDate">SELECT DATE</string>
     <string name="btSelectTime">SELECT TIME</string>
     <string name="isWeeklyAlarm">Weekly alarm</string>
     <string name="btCalendar">Deselect holidays</string>
-
-    <string name="btAddAlarm">Add Alarm</string>
     <string name="newAlarmLabelInfo">Set up a Label</string>
     <string name="newAlarmLabel">New Alarm</string>
     <string name="newAlarmPhraseInfo">Set up a phrase</string>
     <string name="newAlarmPhrase">Wakey Wakey</string>
     <string name="btTestPhrase">Test a phrase</string>
 
-    <string name="edit_alarm_title">Edit Alarm</string>
-    <string name="btSaveCorrectedAlarm">Save Alarm</string>
-
-    <string name="btClose">OK</string>
 
 </resources>

@@ -24,8 +24,8 @@
              </intent-filter>
        </activity>
 
-       <activity android:name="org.light.justwaker.AlarmManagerActivity"
-             android:label="@string/title_activity_alarm_manager">
+       <activity android:name="org.light.justwaker.AddAlarmActivity"
+             android:label="@string/title_activity_add_alarm">
        </activity>
 
        <activity android:name="org.light.justwaker.EditAlarmActivity"

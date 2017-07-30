@@ -18,19 +18,18 @@
         </include>
 
         <Button
-            android:id="@+id/btSave"
-            android:onClick="updateAlarm"
+            android:id="@+id/btStart"
+            android:onClick="setTimer"
             android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:padding="@dimen/padding_medium"
-            android:text="@string/btSaveCorrectedAlarm"
-            android:layout_below="@+id/bt_edit_calendar"
-            android:layout_alignLeft="@+id/bt_edit_calendar"
-            android:layout_alignStart="@+id/bt_edit_calendar"
+            android:text="@string/btStart"
+            android:layout_below="@+id/btCalendar"
+            android:layout_alignLeft="@+id/btCalendar"
+            android:layout_alignStart="@+id/btCalendar"
             android:background="@color/redirect_button"/>
 
     </LinearLayout>
-
 
 </ScrollView>

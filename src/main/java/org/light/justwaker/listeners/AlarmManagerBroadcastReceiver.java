@@ -2,7 +2,7 @@ package org.light.justwaker.listeners;
 
 import java.util.ArrayList;
 
-import org.light.justwaker.AlarmManagerActivity;
+import org.light.justwaker.AddAlarmActivity;
 import org.light.justwaker.WakeUpActivity;
 import org.light.justwaker.utility.AlarmUtils;
 import org.light.justwaker.utility.DateTimeUtility;
@@ -28,7 +28,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 		Bundle extras = intent.getExtras();
 		if (extras != null && extras.getString(AlarmUtils.ALARM_PHRASE) != null) {
 			String phrase = extras.getString(AlarmUtils.ALARM_PHRASE) + " ";
-			ArrayList<String> datesToDeselect = intent.getStringArrayListExtra(AlarmManagerActivity.SELECTED_DATES_PARAMETER);
+			ArrayList<String> datesToDeselect = intent.getStringArrayListExtra(AddAlarmActivity.SELECTED_DATES_PARAMETER);
 			Log.i(TAG, "Alarm Phrase: " + phrase + ", EXCLUDED: " + datesToDeselect);
 
 			if(DateTimeUtility.containsToday(datesToDeselect)) {

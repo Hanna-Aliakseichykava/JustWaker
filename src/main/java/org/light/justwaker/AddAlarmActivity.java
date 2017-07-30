@@ -1,6 +1,5 @@
 package org.light.justwaker;
 
-import org.light.justwaker.R;
 import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.AlarmUtils;
 
@@ -12,23 +11,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.CheckBox;
-
 import java.util.Calendar;
 
-public class AlarmManagerActivity extends BaseAlarmViewActivity {
+public class AddAlarmActivity extends BaseAlarmViewActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_alarm_manager);
+		setContentView(R.layout.activity_add_alarm);
 
-		labelEdit = (EditText)findViewById(R.id.in_label);
-		phraseEdit = (EditText)findViewById(R.id.in_phrase);
+		initControls();
+		//TODO: set selection
 
-		spinSelectedDay = (Spinner)findViewById(R.id.spinSelectedDay);
-		tpSelectedTime = (TimePicker)findViewById(R.id.tpSelectedTime);
-		initDateTimeControls();
 		spinSelectedDay.setSelection(DayOfWeek.getIndexByNumber(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)));
+
 	}
 
 	// Button listeners
@@ -42,7 +38,7 @@ public class AlarmManagerActivity extends BaseAlarmViewActivity {
 	}
 
 	public void onClickOpenCalendarButton(View view) {
-		Intent intent = new Intent(AlarmManagerActivity.this, CalendarActivity.class);
+		Intent intent = new Intent(AddAlarmActivity.this, CalendarActivity.class);
 		openCalendarView(intent);
 	}
 }

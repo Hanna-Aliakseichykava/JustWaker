@@ -30,20 +30,14 @@ public class EditAlarmActivity extends BaseAlarmViewActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_alarm);
 
-		labelEdit = (EditText)findViewById(R.id.in_correct_label);
-		phraseEdit = (EditText)findViewById(R.id.in_correct_phrase);
-
-		spinSelectedDay = (Spinner)findViewById(R.id.spinEditSelectedDay);
-		tpSelectedTime = (TimePicker)findViewById(R.id.tpEditSelectedTime);
-
-		initDateTimeControls();
+		initControls();
 
 		fillOldValues(this.getIntent());
 	}
 
 	private void fillOldValues(Intent intent) {
 		Bundle extras = intent.getExtras();
-		CheckBox isWeeklyCheckbox = (CheckBox)findViewById(R.id.checkboxEditWeeklyAlarm);
+		CheckBox isWeeklyCheckbox = (CheckBox)findViewById(R.id.checkboxWeeklyAlarm);
 
 		if (extras != null && extras.containsKey(ALARM_ID)) {
 
@@ -81,7 +75,7 @@ public class EditAlarmActivity extends BaseAlarmViewActivity {
 	// Button listeners
 	public void updateAlarm(View view) {
 		Context context = this.getApplicationContext();
-		boolean isWeekly = ((CheckBox)findViewById(R.id.checkboxEditWeeklyAlarm)).isChecked();
+		boolean isWeekly = ((CheckBox)findViewById(R.id.checkboxWeeklyAlarm)).isChecked();
 
 		alarm.setDateTime(getDateTime());
 		alarm.setLabel(labelEdit.getText().toString());

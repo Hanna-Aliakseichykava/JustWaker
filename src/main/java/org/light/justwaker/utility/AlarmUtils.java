@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.light.justwaker.AlarmManagerActivity;
+import org.light.justwaker.AddAlarmActivity;
 import org.light.justwaker.listeners.AlarmManagerBroadcastReceiver;
 import org.light.justwaker.model.AlarmModel;
 
@@ -58,7 +58,7 @@ public class AlarmUtils {
 
 		Intent intent = new Intent(context, AlarmManagerBroadcastReceiver.class);
 		intent.putExtra(ALARM_PHRASE, alarm.getPhrase());
-		intent.putStringArrayListExtra(AlarmManagerActivity.SELECTED_DATES_PARAMETER,
+		intent.putStringArrayListExtra(AddAlarmActivity.SELECTED_DATES_PARAMETER,
 				(ArrayList<String>) alarm.getDatesToIgnore());
 
 		AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

@@ -3,7 +3,6 @@ package org.light.justwaker;
 import java.util.Collections;
 import java.util.List;
 
-import org.light.justwaker.R;
 import org.light.justwaker.listeners.AlarmListAdapter;
 import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.utility.AlarmUtils;
@@ -36,7 +35,7 @@ public class AlarmsListActivity extends BaseMenuActivity {
 	}
 
 	public void onClickAddAlarmButton(View view) {
-		Intent intent = new Intent(AlarmsListActivity.this, AlarmManagerActivity.class);
+		Intent intent = new Intent(AlarmsListActivity.this, AddAlarmActivity.class);
 		startActivity(intent);
 	}
 
