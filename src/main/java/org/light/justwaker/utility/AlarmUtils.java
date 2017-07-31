@@ -243,7 +243,7 @@ public class AlarmUtils {
 		return alarm;
 	}
 
-	private static JSONArray toJsonArray(List data) {
+	protected static JSONArray toJsonArray(List data) {
 		JSONArray array = new JSONArray();
 		for (Object obj : data) {
 			array.put(obj);
