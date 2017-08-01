@@ -9,6 +9,7 @@ import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.DateTimeUtility;
 import org.light.justwaker.components.WeekDaysPicker;
+import org.light.justwaker.utility.SpeechUtility;
 
 import android.content.Context;
 import android.content.Intent;
@@ -57,7 +58,7 @@ public class BaseAlarmViewActivity extends BaseMenuActivity {
 		String toSpeak = phraseEdit.getText().toString();
 		Context context = this.getApplicationContext();
 		Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-		//SpeechUtility.speak(context, toSpeak);
+		SpeechUtility.speak(context, toSpeak);
 
 		Toast.makeText(this, "!!! Days " + daysPicker.getSelectedDayNumbers(), Toast.LENGTH_LONG).show();
 	}

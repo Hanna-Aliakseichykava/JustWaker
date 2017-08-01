@@ -71,7 +71,7 @@ public class WeekDaysPicker {
 
     public void setSelectedWeekDays(List<Integer> numbers) {
         for(int i = 0; i < numbers.size(); i++) {
-            int index = DayOfWeek.getIndexByNumber(i);
+            int index = DayOfWeek.getIndexByNumber(numbers.get(i));
             ToggleButton btn = buttons.get(index);
             btn.setChecked(true);
         }

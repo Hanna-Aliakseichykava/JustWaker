@@ -34,7 +34,6 @@
     <string name="newAlarmLabel">New Alarm</string>
     <string name="newAlarmPhraseInfo">Set up a phrase</string>
     <string name="newAlarmPhrase">Wakey Wakey</string>
-    <string name="btTestPhrase">Test a phrase</string>
 
 
 </resources>

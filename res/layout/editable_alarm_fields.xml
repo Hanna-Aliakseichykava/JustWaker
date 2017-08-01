@@ -15,9 +15,10 @@
     </LinearLayout>
 
     <TimePicker android:id="@+id/tpSelectedTime"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_short_margin">
+        android:paddingTop="@dimen/activity_short_margin"
+        android:gravity="center">
     </TimePicker>
 
     <TextView android:id="@+id/text_label"
@@ -25,65 +26,65 @@
         android:layout_height="wrap_content"
         android:text="@string/newAlarmLabelInfo"
         android:textSize="15sp"
-        android:paddingBottom="@dimen/activity_short_margin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:paddingLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"/>
 
     <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
         android:id="@+id/in_label"
-        android:text="@string/newAlarmLabel"
-        android:layout_below="@+id/text_label"
-        android:layout_alignLeft="@+id/text_label"
-        android:layout_alignStart="@+id/text_label" />
-
-    <TextView android:id="@+id/text_phrase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/newAlarmPhraseInfo"
-        android:textSize="15sp"
-        android:paddingBottom="5dp"
-        android:layout_alignBottom="@+id/in_label"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="@string/newAlarmLabel"/>
+
+    <LinearLayout android:id="@+id/testPhraseWrapper"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView android:id="@+id/text_phrase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/newAlarmPhraseInfo"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"/>
+
+        <Button
+            android:id="@+id/btn_test_phrase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/sound"
+            android:onClick="testVoice"/>
+
+    </LinearLayout>
+
 
     <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
         android:id="@+id/in_phrase"
-        android:text="@string/newAlarmPhrase"
-        android:layout_below="@+id/text_phrase"
-        android:layout_alignLeft="@+id/text_phrase"
-        android:layout_alignStart="@+id/text_phrase" />
-
-    <Button
-        android:id="@+id/btn_test_phrase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/sound"
-        android:text="@string/btTestPhrase"
-        android:onClick="testVoice"
-        android:layout_below="@+id/in_phrase"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:text="@string/newAlarmPhrase"/>
 
-    <CheckBox android:id="@+id/checkboxWeeklyAlarm"
-        android:layout_width="wrap_content"
+
+    <LinearLayout android:id="@+id/isWeeklyCheckboxWrapper"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/isWeeklyAlarm"
-        />
+        android:gravity="center">
+
+        <CheckBox android:id="@+id/checkboxWeeklyAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/isWeeklyAlarm"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btCalendar"
         android:onClick="onClickOpenCalendarButton"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/btCalendar"
-        android:layout_below="@+id/btTestPhrase"
-        android:layout_alignLeft="@+id/btTestPhrase"
-        android:layout_alignStart="@+id/btTestPhrase"/>
+        android:text="@string/btCalendar"/>
 
 </LinearLayout>
