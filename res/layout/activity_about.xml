@@ -3,17 +3,39 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/extra_small_space"
+    android:paddingRight="@dimen/extra_small_space">
    
    <TextView
-       android:id="@+id/textView_about_content"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:textSize="@dimen/text_size_about"
-       android:paddingBottom="@dimen/small_space"
-       android:paddingTop="@dimen/small_space"
-       android:gravity="center"
-       android:text="@string/about_text"/>
+    android:id="@+id/textView_about_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/text_size_about"
+    android:paddingBottom="@dimen/small_space"
+    android:paddingTop="@dimen/small_space"
+    android:gravity="center"
+    android:text="@string/about_text"/>
+
+    <TextView
+        android:id="@+id/textView_about_dev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_about"
+        android:paddingBottom="@dimen/small_space"
+        android:paddingTop="@dimen/small_space"
+        android:gravity="center"
+        android:text="@string/dev_text"/>
+
+    <TextView
+        android:id="@+id/textView_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_about"
+        android:paddingBottom="@dimen/small_space"
+        android:paddingTop="@dimen/small_space"
+        android:gravity="center"
+        android:text="@string/contacts_text"/>
 
     <Button
         android:id="@+id/buttonBack"

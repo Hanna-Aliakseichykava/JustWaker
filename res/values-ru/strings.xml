@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JustWaker</string>
+    <string name="title_activity_main">JustWaker</string>
+
+    <string name="action_about">О программе</string>
+
+	<string name="btBack">Назад</string>
+    <string name="btSaveAndBack">Применить</string>
+    <string name="btClose">OK</string>
+
+    <string name="title_activity_add_alarm">Добавить будильник</string>
+    <string name="btAddAlarm">Добавить будильник</string>
+
+    <string name="btCancelAll">Отменить все</string>
+
+    <string name="about_title">О программе</string>
+    <string name="about_text">Будильник\n* Разбудить заданной фразой\n* Пропускать праздничные дни</string>
+    <string name="dev_text">Раработка: Анна Алексейчикова\nОбеспечение качества: Зоя Алексейчикова\nИдея праздничных дней: Татьяна Вершковская</string>
+    <string name="contacts_text">Обратная связь: aleks.anna.ur@gmail.com</string>
+
+    <string name="btStart">Установить будильник</string>
+
+    <string name="edit_alarm_title">Редактировать будильник</string>
+    <string name="btSaveCorrectedAlarm">Сохранить будильник</string>
+
+    <string name="isWeeklyAlarm">Еженедельно</string>
+    <string name="btCalendar">Праздничные дни</string>
+    <string name="newAlarmLabelInfo">Название</string>
+    <string name="newAlarmLabel">Новый будильник</string>
+    <string name="newAlarmPhraseInfo">Фраза для пробуждения</string>
+    <string name="newAlarmPhrase">Wakey Wakey</string>
+    <string name="wake_up_text">Wakey Wakey</string>
+
+</resources>

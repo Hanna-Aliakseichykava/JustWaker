@@ -54,15 +54,15 @@ public class TextToSpeechService extends Service implements TextToSpeech.OnInitL
 	public void onInit(int status) {
 		Log.d(TAG, "onInit");
 		if (status == TextToSpeech.SUCCESS) {
-			/*int result = tts.setLanguage(Locale.getDefault());
+			int result = tts.setLanguage(Locale.getDefault());
 			if (result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED) {
 				speak();
 				isInit = true;
-			} else {*/
+			} else {
 				tts.setLanguage(Locale.UK);
 				isInit = true;
 				speak();
-			//}
+			}
 		} else {
 			Log.e(TAG, "init failed with status: " + status);
 		}
