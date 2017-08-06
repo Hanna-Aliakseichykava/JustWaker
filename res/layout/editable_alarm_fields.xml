@@ -1,6 +1,5 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical">
@@ -17,7 +16,7 @@
     <TimePicker android:id="@+id/tpSelectedTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_short_margin"
+        android:paddingTop="@dimen/small_space"
         android:gravity="center">
     </TimePicker>
 
@@ -25,9 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/newAlarmLabelInfo"
-        android:textSize="15sp"
-        android:paddingLeft="5dp"
-        android:layout_marginTop="15dp"
+        android:textSize="@dimen/text_size_edit"
+        android:paddingLeft="@dimen/small_space"
+        android:layout_marginTop="@dimen/horizontal_margin_edit"
+        android:layout_marginBottom="@dimen/small_space"
         android:gravity="center"/>
 
     <EditText
@@ -46,8 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/newAlarmPhraseInfo"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"/>
+            android:paddingBottom="@dimen/small_space"
+            android:paddingLeft="@dimen/small_space"/>
 
         <Button
             android:id="@+id/btn_test_phrase"
@@ -82,7 +82,7 @@
     <Button
         android:id="@+id/btCalendar"
         android:onClick="onClickOpenCalendarButton"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/activity_medium_margin"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="@string/btCalendar"/>

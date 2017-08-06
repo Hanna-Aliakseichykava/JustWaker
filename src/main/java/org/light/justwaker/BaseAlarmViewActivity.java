@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.light.justwaker.model.AlarmModel;
-import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.DateTimeUtility;
 import org.light.justwaker.components.WeekDaysPicker;
 import org.light.justwaker.utility.SpeechUtility;
@@ -15,13 +14,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class BaseAlarmViewActivity extends BaseMenuActivity {
 
@@ -59,8 +55,6 @@ public class BaseAlarmViewActivity extends BaseMenuActivity {
 		Context context = this.getApplicationContext();
 		Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
 		SpeechUtility.speak(context, toSpeak);
-
-		Toast.makeText(this, "!!! Days " + daysPicker.getSelectedDayNumbers(), Toast.LENGTH_LONG).show();
 	}
 
 	protected List<Calendar> getDateTime() {
@@ -79,7 +73,6 @@ public class BaseAlarmViewActivity extends BaseMenuActivity {
 		if (requestCode == CALENDAR_CHILD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
 			ArrayList<String> selectedDates = data.getStringArrayListExtra(SELECTED_DATES_PARAMETER);
 
-			Toast.makeText(this, "!!! " + selectedDates.toString(), Toast.LENGTH_LONG).show();
 			datesToIgnore = selectedDates;
 		}
 	}

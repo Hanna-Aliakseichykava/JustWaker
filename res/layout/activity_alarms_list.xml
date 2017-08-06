@@ -18,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
         android:onClick="onClickAddAlarmButton"
         android:text="@string/btAddAlarm">
     </Button>
@@ -28,9 +27,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
         android:onClick="cancelAllAlarms"
         android:text="@string/btCancelAll">
+    </Button>
+
+    <Button
+        android:id="@+id/btAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="showAbout"
+        android:text="@string/action_about">
     </Button>
 
 </LinearLayout>

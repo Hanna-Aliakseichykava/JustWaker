@@ -20,7 +20,7 @@
         <Button
             android:id="@+id/btSave"
             android:onClick="updateAlarm"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/activity_big_vertical_margin"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:padding="@dimen/padding_medium"

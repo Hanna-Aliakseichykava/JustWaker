@@ -25,14 +25,6 @@ public class AlarmUtils {
 
 	public static final String ALARM_PHRASE = "ALARM_PHRASE";
 
-	/*public static void addAlarm(Context context, Calendar calendar, String label, String phrase,
-								boolean isWeekly, List<String> datesToIgnore) {
-
-		AlarmModel alarm = prepareAlarm(context, calendar, label, phrase, isWeekly, datesToIgnore);
-
-		addSystemAlarm(context, alarm);
-	}*/
-
 	public static void addAlarm(Context context,AlarmModel alarm) {
 
 		prepareAlarm(context, alarm);
@@ -48,19 +40,6 @@ public class AlarmUtils {
 		saveAlarmInPreferences(context, alarm);
 		addSystemAlarms(context, alarm);
 	}
-
-	/*private static AlarmModel prepareAlarm(Context context, Calendar calendar,
-								String label, String phrase, boolean isWeekly,
-								List<String> datesToIgnore) {
-
-		List<AlarmModel> alarms = getAlarms(context);
-		int notificationId = alarms.size() + 1;
-
-		AlarmModel alarm = new AlarmModel(notificationId, calendar, label, phrase, isWeekly, datesToIgnore);
-		saveAlarmInPreferences(context, alarm);
-
-		return alarm;
-	}*/
 
 	private static AlarmModel prepareAlarm(Context context, AlarmModel alarm) {
 
@@ -95,7 +74,6 @@ public class AlarmUtils {
 				PendingIntent.FLAG_CANCEL_CURRENT);
 
 		if(alarm.isWeekly()) {
-			//int weekInterval= 7 * 24 * 60 * 60 * 1000;
 			long weekInterval= 7 * AlarmManager.INTERVAL_DAY;
 			alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), weekInterval, pendingIntent);
 		} else {
@@ -125,11 +103,6 @@ public class AlarmUtils {
 		}
 	}
 
-	/*public static boolean hasAlarm(Context context, Intent intent, int notificationId) {
-		return PendingIntent.getBroadcast(context,
-			notificationId, intent, PendingIntent.FLAG_NO_CREATE) != null;
-	}*/
-
 	private static void saveAlarmInPreferences(Context context, AlarmModel alarm) {
 		List<AlarmModel> alarms = getAlarms(context);
 
@@ -148,16 +121,6 @@ public class AlarmUtils {
 
 		saveAlarmsInPreferences(context, alarms);
 	}
-
-	/*public static List<String> getAlarmNames(Context context) {
-		List<AlarmModel> alarms = getAlarms(context);
-
-		List<String> alarmNames = new ArrayList<>();
-		for(AlarmModel alarm: alarms) {
-			alarmNames.add(alarm.toString());
-		}
-		return alarmNames;
-	}*/
 
 	public static AlarmModel getAlarmById(Context context, int id) {
 		for (AlarmModel alarm : getAlarms(context)) {

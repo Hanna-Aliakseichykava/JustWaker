@@ -14,7 +14,6 @@ public class DateTimeUtility {
 
 	private static final String DATE_TIME_FORMAT = "dd-MM-yyyy HH:mm";
 	private static final String DATE_TIME_TEMPLATE = "%02d-%02d-%4d %02d:%02d";
-	private static final Locale LOCALE = Locale.ENGLISH;
 
 	private static final String DATE_FORMAT = "dd-MM-yyyy";
 
@@ -50,7 +49,7 @@ public class DateTimeUtility {
 	}
 
 	public static Calendar calendarFromDateTime(String dateTime) {
-		SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_FORMAT, LOCALE);
+		SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_FORMAT);
 
 		Calendar calendar = Calendar.getInstance();
 
@@ -81,25 +80,8 @@ public class DateTimeUtility {
 		int hour = c.get(Calendar.HOUR_OF_DAY);
 		int minute = c.get(Calendar.MINUTE);
 
-		return String.format(DATE_TIME_TEMPLATE, dayOfMonth, month +1, year, hour, minute);
+		return String.format(DATE_TIME_TEMPLATE, dayOfMonth, month + 1, year, hour, minute);
 	}
-
-	public static String calendarToUserString(Calendar c) {
-		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-
-		int hour = c.get(Calendar.HOUR_OF_DAY);
-		int minute = c.get(Calendar.MINUTE);
-
-		return toUserString(dayOfWeek, hour, minute);
-	}
-
-	private static String toUserString(int dayOfWeek, int hour, int minute) {
-		DateFormatSymbols symbols = new DateFormatSymbols(LOCALE);
-		String weekday = symbols.getWeekdays()[dayOfWeek];
-		return String.format("%s %02d:%02d", weekday, hour, minute);
-	}
-
-	/* Dates */
 
 	public static Calendar dateFromString(String dateStr) {
 		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
@@ -160,4 +142,28 @@ public class DateTimeUtility {
 		Calendar today = Calendar.getInstance();
 		return containsDay(dates, today);
 	}
+
+	public static String calendarToUserString(String dateTime) {
+		Calendar c = calendarFromDateTime(dateTime);
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+		return String.format("%02d:%02d", hour, minute);
+	}
+	/*
+	private static final Locale LOCALE = Locale.ENGLISH;
+
+	public static String calendarToUserString(Calendar c) {
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+
+		return toUserString(dayOfWeek, hour, minute);
+	}
+
+	private static String toUserString(int dayOfWeek, int hour, int minute) {
+		DateFormatSymbols symbols = new DateFormatSymbols(LOCALE);
+		String weekday = symbols.getWeekdays()[dayOfWeek];
+		return String.format("%s %02d:%02d", weekday, hour, minute);
+	}*/
 }

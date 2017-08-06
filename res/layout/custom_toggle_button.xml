@@ -1,6 +1,5 @@
 <LinearLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:layout_centerHorizontal="true"
@@ -11,13 +10,13 @@ android:background="@null">
     android:id="@+id/customToggableButton"
 
     android:layout_width="wrap_content"
-    android:layout_height="30dp"
+    android:layout_height="@dimen/toggle_btn_size"
 
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
+    android:paddingLeft="@dimen/small_space"
+    android:paddingRight="@dimen/small_space"
 
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginTop="@dimen/activity_medium_margin"
+    android:layout_marginBottom="@dimen/activity_medium_margin"
 
     android:background="@null"
     android:textColor="@drawable/toggle_text"

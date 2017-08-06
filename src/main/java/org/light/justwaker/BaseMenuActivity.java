@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public abstract class BaseMenuActivity extends Activity {
 
@@ -20,14 +21,14 @@ public abstract class BaseMenuActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_about:
 			Log.i("TTS", "About activity is selected");
-			showAbout();
+			showAbout(null);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
 
-	public void showAbout() {
+	public void showAbout(View view) {
 		Intent intent = new Intent(BaseMenuActivity.this, AboutActivity.class);
 		startActivity(intent);
 	}

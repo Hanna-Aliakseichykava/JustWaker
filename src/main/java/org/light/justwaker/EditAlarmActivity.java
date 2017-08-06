@@ -3,9 +3,7 @@ package org.light.justwaker;
 import java.util.Calendar;
 
 import org.light.justwaker.model.AlarmModel;
-import org.light.justwaker.model.DayOfWeek;
 import org.light.justwaker.utility.AlarmUtils;
-import org.light.justwaker.utility.DateTimeUtility;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +11,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
 import java.util.ArrayList;
 

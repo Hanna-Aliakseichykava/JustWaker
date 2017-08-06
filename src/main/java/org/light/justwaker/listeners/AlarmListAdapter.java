@@ -57,15 +57,16 @@ public class AlarmListAdapter extends BaseAdapter {
 		}
 
 		final AlarmModel dataModel = listArray.get(index);
+		final String label = dataModel.getInfo(view.getResources());
 
 		TextView textView = (TextView) view.findViewById(R.id.tv_string_data);
-		textView.setText(dataModel.toString());
+		textView.setText(label);
 
 		Button btnEdit = (Button) view.findViewById(R.id.btn_edit);
 		btnEdit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Log.i(TAG, "OnClick Edit for Alarm: " + dataModel.toString());
+				Log.i(TAG, "OnClick Edit for Alarm: " + label);
 				parentActivity.onClickEditAlarmButton(dataModel);
 			}
 		});
@@ -74,7 +75,7 @@ public class AlarmListAdapter extends BaseAdapter {
 		btnCancel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Log.i(TAG, "OnClick Cancel for Alarm: " + dataModel.toString());
+				Log.i(TAG, "OnClick Cancel for Alarm: " + label);
 				AlarmUtils.cancelAlarm(parentActivity, dataModel);
 				parentActivity.updateListView();
 				Toast.makeText(parent.getContext(), "Alarm is cancelled", Toast.LENGTH_SHORT).show();

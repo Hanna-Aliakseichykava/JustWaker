@@ -1,5 +1,7 @@
 package org.light.justwaker.model;
 
+import android.content.res.Resources;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -23,19 +25,6 @@ public class AlarmModel implements Comparable<AlarmModel> {
 
 	public AlarmModel() {
 	}
-
-	/*public AlarmModel(int id, List<Integer> daysOfWeek, List<Calendar> calendars, String label, String phrase, boolean isWeekly,
-					  List<String> datesToIgnore) {
-		this.id = id;
-		this.daysOfWeek = new ArrayList<Integer>(daysOfWeek);
-		this.datesToAlarm = DateTimeUtility.calendarsToInnerStrings(calendars);
-		this.label = label;
-		this.phrase = phrase;
-		this.isWeekly = isWeekly;
-
-		this.datesToIgnore.clear();
-		this.datesToIgnore.addAll(datesToIgnore);
-	}*/
 
 	public int getId() {
 		return id;
@@ -86,13 +75,6 @@ public class AlarmModel implements Comparable<AlarmModel> {
 		return DateTimeUtility.calendarsFromDateTime(datesToAlarm);
 	}
 
-	/*public List<String> getDatesToAlarm() {
-            return datesToAlarm;
-        }
-        public void setDatesToAlarm(List<String> datesToAlarm) {
-            this.datesToAlarm = datesToAlarm;
-        }*/
-
 	public void setDatesToAlarm(List<Calendar> calendars) {
 		setRawDatesToAlarm(DateTimeUtility.calendarsToInnerStrings(calendars));
 	}
@@ -100,7 +82,6 @@ public class AlarmModel implements Comparable<AlarmModel> {
 	public void setRawDatesToAlarm(List<String> dates) {
 		this.datesToAlarm = dates;
 	}
-
 
 	public List<Integer> getDaysOfWeek() {
 		return daysOfWeek;
@@ -114,20 +95,6 @@ public class AlarmModel implements Comparable<AlarmModel> {
 		return datesToAlarm;
 	}
 
-	/*public void setDatesToAlarm(List<String> datesToAlarm) {
-		this.datesToAlarm = datesToAlarm;
-	}*/
-
-	@Override
-	public String toString() {
-		String name = DayOfWeek.getShortCodesByNumbers(daysOfWeek) + " " + label;
-		if(isWeekly) {
-			name += " weekly";
-		}
-
-		return name;
-	}
-
 	@Override
 	public int compareTo(AlarmModel other) {
 		int result = this.getLabel().compareTo(other.getLabel());
@@ -136,5 +103,16 @@ public class AlarmModel implements Comparable<AlarmModel> {
 		} else {
 			return this.label.compareTo(other.getLabel());
 		}
+	}
+
+	public String getInfo(Resources resources) {
+		String date = DateTimeUtility.calendarToUserString(datesToAlarm.get(0));
+		String days = DayOfWeek.getShortCodesByNumbers(resources, daysOfWeek);
+		String name = date + " " + days + " " + label;
+		if(isWeekly) {
+			name += " weekly";
+		}
+
+		return name;
 	}
 }

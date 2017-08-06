@@ -54,16 +54,6 @@ public class AlarmsListActivity extends BaseMenuActivity {
 		updateListView();
 	}
 
-	/*private void updateListView() {
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1,
-				new String[] {"Item1","Item2"});
-
-
-			ListView listView = (ListView)findViewById(R.id.alarmsListView);
-			listView.setAdapter(adapter);
-	}*/
-
 	public void updateListView() {
 
 		AlarmListAdapter adapter = new AlarmListAdapter(this, getListItems());
