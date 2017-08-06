@@ -25,7 +25,7 @@ public class AlarmUtils {
 
 	public static final String ALARM_PHRASE = "ALARM_PHRASE";
 
-	public static void addAlarm(Context context,AlarmModel alarm) {
+	public static void addAlarm(Context context, AlarmModel alarm) {
 
 		prepareAlarm(context, alarm);
 

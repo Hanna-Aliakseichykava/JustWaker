@@ -44,16 +44,16 @@ public class CalendarActivity extends Activity {
 		calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
 
 		calendar.init(today, nextYear.getTime())
-				.inMode(SelectionMode.MULTIPLE)
-				.withSelectedDates(DateTimeUtility.datesFromStrings(selectedDates));
+			.inMode(SelectionMode.MULTIPLE)
+			.withSelectedDates(DateTimeUtility.datesFromStrings(selectedDates));
 	}
 
 	public void onCloseCalendar(View view) {
-		Toast.makeText(this, calendar.getSelectedDates().toString(), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "Selected: " + calendar.getSelectedDates().toString(), Toast.LENGTH_LONG).show();
 
 		Intent output = new Intent();
 		output.putStringArrayListExtra(AddAlarmActivity.SELECTED_DATES_PARAMETER,
-				DateTimeUtility.datesToInnerStrings(calendar.getSelectedDates()));
+			DateTimeUtility.datesToInnerStrings(calendar.getSelectedDates()));
 
 		setResult(RESULT_OK, output);
 		finish();

@@ -9,6 +9,7 @@
         android:targetSdkVersion="25" />
         
         <uses-permission android:name="android.permission.WAKE_LOCK"/>
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <activity android:name="org.light.justwaker.AlarmsListActivity"
+        <activity android:name="AlarmsListActivity"
              android:label="@string/title_activity_main">
              <intent-filter>
                  <action android:name="android.intent.action.MAIN"/>
@@ -24,31 +25,37 @@
              </intent-filter>
        </activity>
 
-       <activity android:name="org.light.justwaker.AddAlarmActivity"
+       <activity android:name="AddAlarmActivity"
              android:label="@string/title_activity_add_alarm">
        </activity>
 
-       <activity android:name="org.light.justwaker.EditAlarmActivity"
+       <activity android:name="EditAlarmActivity"
             android:label="@string/edit_alarm_title">
         </activity>
 
-       <receiver android:name="org.light.justwaker.listeners.AlarmManagerBroadcastReceiver">
+       <receiver android:name=".listeners.AlarmManagerBroadcastReceiver">
        </receiver>
        
-       <activity android:name="org.light.justwaker.CalendarActivity">
+       <activity android:name="CalendarActivity">
         </activity>
 
-        <activity android:name="org.light.justwaker.AboutActivity"
+        <activity android:name="AboutActivity"
             android:label="@string/about_title">
         </activity>
 
-        <activity android:name="org.light.justwaker.WakeUpActivity">
+        <activity android:name="WakeUpActivity">
         </activity>
 
 
         <service
           android:name=".services.TextToSpeechService"
           android:exported="false"/>
+
+        <receiver android:name=".services.RebootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 
