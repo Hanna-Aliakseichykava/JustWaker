@@ -1,8 +1,9 @@
-package org.light.justwaker;
+package org.light.justwaker.activity;
 
 import java.util.Collections;
 import java.util.List;
 
+import org.light.justwaker.R;
 import org.light.justwaker.listeners.AlarmListAdapter;
 import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.utility.AlarmUtils;

@@ -1,4 +1,4 @@
-package org.light.justwaker;
+package org.light.justwaker.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import org.light.justwaker.R;
 
 public abstract class BaseMenuActivity extends Activity {
 

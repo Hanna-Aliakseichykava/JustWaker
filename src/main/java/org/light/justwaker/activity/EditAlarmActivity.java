@@ -1,7 +1,8 @@
-package org.light.justwaker;
+package org.light.justwaker.activity;
 
 import java.util.Calendar;
 
+import org.light.justwaker.R;
 import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.utility.AlarmUtils;
 
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 import java.util.ArrayList;
+import android.text.TextUtils;
 
 public class EditAlarmActivity extends BaseAlarmViewActivity {
 
@@ -56,6 +58,7 @@ public class EditAlarmActivity extends BaseAlarmViewActivity {
 				setSelectedWeekDays(alarm.getDaysOfWeek());
 
 				datesToIgnore = (ArrayList)alarm.getDatesToIgnore();
+				datesToIgnoreLabel.setText(TextUtils.join(", ", datesToIgnore));
 			} else {
 				Log.e(TAG, "Alarm is not found by id: " + alarmId);
 				Toast.makeText(this, "Alarm is not found by id: " + alarmId, Toast.LENGTH_SHORT).show();

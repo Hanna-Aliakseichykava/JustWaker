@@ -5,29 +5,29 @@
     android:orientation="vertical">
 
 
-    <LinearLayout android:id="@+id/weekDaysSelectionWrapper"
-         android:orientation="horizontal"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:gravity="center">
-
-    </LinearLayout>
-
-    <TimePicker android:id="@+id/tpSelectedTime"
+    <TimePicker android:id="@+id/tpSelectTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/small_space"
         android:gravity="center">
     </TimePicker>
 
+    <LinearLayout android:id="@+id/weekDaysSelectionWrapper"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:layout_marginTop="@dimen/activity_medium_margin"
+                  android:layout_marginBottom="@dimen/activity_medium_margin">
+
+    </LinearLayout>
+
     <TextView android:id="@+id/text_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/newAlarmLabelInfo"
         android:textSize="@dimen/text_size_edit"
-        android:paddingLeft="@dimen/small_space"
-        android:layout_marginTop="@dimen/horizontal_margin_edit"
-        android:layout_marginBottom="@dimen/small_space"
+        android:layout_marginBottom="@dimen/extra_small_space"
         android:gravity="center"/>
 
     <EditText
@@ -40,21 +40,26 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="@dimen/activity_medium_margin">
 
         <TextView android:id="@+id/text_phrase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/newAlarmPhraseInfo"
-            android:paddingBottom="@dimen/small_space"
             android:paddingLeft="@dimen/small_space"/>
 
         <Button
             android:id="@+id/btn_test_phrase"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/sound_btn_width"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/sound"
-            android:onClick="testVoice"/>
+            android:onClick="testVoice"
+            android:layout_marginLeft="@dimen/extra_small_space"
+            android:paddingLeft="@dimen/sound_btn_padding_left"
+            android:paddingRight="@dimen/extra_small_space"
+            android:paddingTop="0dp"
+            android:paddingBottom="3dp"/>
 
     </LinearLayout>
 
@@ -70,7 +75,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="@dimen/activity_medium_margin"
+        android:layout_marginBottom="@dimen/extra_small_space">
 
         <CheckBox android:id="@+id/checkboxWeeklyAlarm"
             android:layout_width="wrap_content"
@@ -86,5 +93,10 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="@string/btCalendar"/>
+
+    <TextView android:id="@+id/deselected_days"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"/>
 
 </LinearLayout>

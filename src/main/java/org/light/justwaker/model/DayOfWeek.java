@@ -54,7 +54,7 @@ public enum DayOfWeek {
 		for(int number : numbers) {
 			label += " " + codes.get(DayOfWeek.getIndexByNumber(number));
 		}
-		return label;
+		return label + " ";
 	}
 
 }

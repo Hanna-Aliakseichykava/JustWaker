@@ -32,10 +32,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size_about"
-        android:paddingBottom="@dimen/small_space"
+        android:paddingBottom="@dimen/extra_small_space"
         android:paddingTop="@dimen/small_space"
         android:gravity="center"
         android:text="@string/contacts_text"/>
+
+    <TextView
+        android:id="@+id/textView_mailTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_about"
+        android:paddingBottom="@dimen/small_space"
+        android:paddingTop="0dp"
+        android:gravity="center"
+        android:text="@string/contacts_email"/>
 
     <Button
         android:id="@+id/buttonBack"

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">JustWaker</string>
-    <string name="title_activity_main">JustWaker</string>
-
     <string name="action_about">О программе</string>
 
 	<string name="btBack">Назад</string>
@@ -17,8 +14,8 @@
 
     <string name="about_title">О программе</string>
     <string name="about_text">Будильник\n* Разбудить заданной фразой\n* Пропускать праздничные дни</string>
-    <string name="dev_text">Раработка: Анна Алексейчикова\nОбеспечение качества: Зоя Алексейчикова\nИдея праздничных дней: Татьяна Вершковская</string>
-    <string name="contacts_text">Обратная связь: aleks.anna.ur@gmail.com</string>
+    <string name="dev_text">Разработка: Анна Алексейчикова\nОбеспечение качества: Зоя Алексейчикова\nИдея праздничных дней: Татьяна Вершковская</string>
+    <string name="contacts_text">Обратная связь:</string>
 
     <string name="btStart">Установить будильник</string>
 

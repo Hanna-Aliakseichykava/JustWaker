@@ -1,10 +1,11 @@
-package org.light.justwaker;
+package org.light.justwaker.activity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import java.util.List;
 
+import org.light.justwaker.R;
 import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.utility.DateTimeUtility;
 import org.light.justwaker.components.WeekDaysPicker;
@@ -16,8 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.text.TextUtils;
 
 public class BaseAlarmViewActivity extends BaseMenuActivity {
 
@@ -29,12 +32,13 @@ public class BaseAlarmViewActivity extends BaseMenuActivity {
 	protected EditText phraseEdit;
 
 	protected ArrayList<String> datesToIgnore = new ArrayList<String>();
+	protected TextView datesToIgnoreLabel;
 
 	protected void initControls() {
 		labelEdit = (EditText)findViewById(R.id.in_label);
 		phraseEdit = (EditText)findViewById(R.id.in_phrase);
 
-		tpSelectedTime = (TimePicker)findViewById(R.id.tpSelectedTime);
+		tpSelectedTime = (TimePicker)findViewById(R.id.tpSelectTime);
 
 		initWeekDaysSelectionControl();
 	}
@@ -44,6 +48,8 @@ public class BaseAlarmViewActivity extends BaseMenuActivity {
 		ViewGroup weekDaysSelectionWrapper = (ViewGroup) findViewById(R.id.weekDaysSelectionWrapper);
 
 		daysPicker = WeekDaysPicker.build(this, weekDaysSelectionWrapper);
+
+		datesToIgnoreLabel = (TextView)findViewById(R.id.deselected_days);
 	}
 
 	protected void setSelectedWeekDays(List<Integer> numbers) {
@@ -74,11 +80,12 @@ public class BaseAlarmViewActivity extends BaseMenuActivity {
 			ArrayList<String> selectedDates = data.getStringArrayListExtra(SELECTED_DATES_PARAMETER);
 
 			datesToIgnore = selectedDates;
+			datesToIgnoreLabel.setText(TextUtils.join(", ", datesToIgnore));
 		}
 	}
 
 	protected void openCalendarView(Intent intent) {
-		intent.putStringArrayListExtra(AddAlarmActivity.SELECTED_DATES_PARAMETER,
+		intent.putStringArrayListExtra(SELECTED_DATES_PARAMETER,
 				datesToIgnore);
 		startActivityForResult(intent, CALENDAR_CHILD_ACTIVITY_REQUEST_CODE);
 	}

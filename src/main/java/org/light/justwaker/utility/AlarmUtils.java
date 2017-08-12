@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.light.justwaker.AddAlarmActivity;
+import org.light.justwaker.activity.AddAlarmActivity;
 import org.light.justwaker.listeners.AlarmManagerBroadcastReceiver;
 import org.light.justwaker.model.AlarmModel;
 

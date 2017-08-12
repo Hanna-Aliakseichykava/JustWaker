@@ -10,7 +10,7 @@ import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
 public class TextToSpeechService extends Service implements TextToSpeech.OnInitListener {
-	public final static String TAG = "TextToSpeechService";
+	public final static String TAG = "TextToSpeechService: ";
 
 	public static final String TEXT_TO_READ = "text";
 	private final String UTTERANCE_ID = "FINISHED_PLAYING";

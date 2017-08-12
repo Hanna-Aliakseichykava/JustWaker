@@ -1,89 +1,89 @@
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.2.1'
+	gradleVersion = '2.2.1'
 }
 
 buildscript {
 	System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
 
-     repositories {
+	repositories {
 
-        mavenCentral()
+		mavenCentral()
 
 		jcenter()
 
 		maven {
-          url "https://plugins.gradle.org/m2/"
-        }
-    }
-	
-     dependencies {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+
+	dependencies {
 
 		 classpath 'com.android.tools.build:gradle:2.1.2'
-     }
+	}
 
-     
- }
- 
- repositories {
+}
+
+repositories {
 
 	jcenter()
 
 }
- 
- 
+
+
 apply plugin: 'com.android.application'
-   
-   
+
 
 dependencies {
 
-     compile fileTree(dir: 'libs', include: '*.jar', exclude: 'android-support-*.jar')
+	compile fileTree(dir: 'libs', include: '*.jar', exclude: 'android-support-*.jar')
  
-     compile 'com.squareup:android-times-square:1.6.5@aar'
+	compile 'com.squareup:android-times-square:1.6.5@aar'
 
-     testCompile 'junit:junit:4.12'
-     testCompile 'org.robolectric:robolectric:3.2.1'
+	compile 'ch.acra:acra:4.9.2'
 
- }
- 
+	testCompile 'junit:junit:4.12'
+	testCompile 'org.robolectric:robolectric:3.2.1'
+
+}
 
 
- android {
 
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+android {
 
-     compileOptions {
-         sourceCompatibility JavaVersion.VERSION_1_7
-         targetCompatibility JavaVersion.VERSION_1_7
-     }
+	compileSdkVersion 23
+	buildToolsVersion "23.0.2"
 
-     sourceSets {
-         main {
-             manifest.srcFile 'AndroidManifest.xml'
-             res.srcDirs = ['res']
-             assets.srcDirs = ['assets']
-         }
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_7
+		targetCompatibility JavaVersion.VERSION_1_7
+	}
 
-         androidTest.setRoot('test')
-     }
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			res.srcDirs = ['res']
+			assets.srcDirs = ['assets']
+		}
 
-    lintOptions {
-        abortOnError false
-    }
-	
+		androidTest.setRoot('test')
+	}
+
+	lintOptions {
+		abortOnError false
+	}
+
 	dexOptions { 
 		jumboMode = true
 	} 
-	
+
 	packagingOptions {
 	  exclude 'LICENSE.txt'
 	}
-	
+
 	buildTypes {
-        debug {
-            debuggable true
-        }
+		debug {
+			debuggable true
+		}
 	}
- }
+}
 

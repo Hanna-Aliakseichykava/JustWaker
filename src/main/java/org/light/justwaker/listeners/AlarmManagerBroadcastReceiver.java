@@ -2,8 +2,8 @@ package org.light.justwaker.listeners;
 
 import java.util.ArrayList;
 
-import org.light.justwaker.AddAlarmActivity;
-import org.light.justwaker.WakeUpActivity;
+import org.light.justwaker.activity.AddAlarmActivity;
+import org.light.justwaker.activity.WakeUpActivity;
 import org.light.justwaker.utility.AlarmUtils;
 import org.light.justwaker.utility.DateTimeUtility;
 

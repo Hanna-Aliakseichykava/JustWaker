@@ -1,5 +1,6 @@
-package org.light.justwaker;
+package org.light.justwaker.activity;
 
+import org.light.justwaker.R;
 import org.light.justwaker.utility.DateTimeUtility;
 
 import android.app.Activity;
@@ -49,8 +50,6 @@ public class CalendarActivity extends Activity {
 	}
 
 	public void onCloseCalendar(View view) {
-		Toast.makeText(this, "Selected: " + calendar.getSelectedDates().toString(), Toast.LENGTH_LONG).show();
-
 		Intent output = new Intent();
 		output.putStringArrayListExtra(AddAlarmActivity.SELECTED_DATES_PARAMETER,
 			DateTimeUtility.datesToInnerStrings(calendar.getSelectedDates()));

@@ -1,8 +1,10 @@
-package org.light.justwaker;
+package org.light.justwaker.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+
+import org.light.justwaker.R;
 
 public class AboutActivity extends Activity {
 

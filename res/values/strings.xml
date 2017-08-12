@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">JustWaker</string>
-    <string name="title_activity_main">JustWaker</string>
+    <string name="title_activity_main">@string/app_name</string>
+    <string name="contacts_email">aleks.anna.ur@gmail.com</string>
 
     <string name="action_about">About the program</string>
 
@@ -18,7 +19,7 @@
     <string name="about_title">About the program</string>
     <string name="about_text">Alarm Clock\n* Wake up with selected phrase\n* Skip holidays</string>
     <string name="dev_text">Development: Hanna Aliakseichykava\nQuality assurance: Zoya Aliakseichykava\nHolidays feature idea: Tatsiana Viarshkoyskaya</string>
-    <string name="contacts_text">Feedback: aleks.anna.ur@gmail.com</string>
+    <string name="contacts_text">Feedback:</string>
 
     <string name="btStart">Set up Alarm Clock</string>
 

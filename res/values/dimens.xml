@@ -23,6 +23,10 @@
 
     <dimen name="list_item_size">50dp</dimen>
 
+    <dimen name="sound_btn_width">53dp</dimen>
+    <dimen name="sound_btn_padding_left">6dp</dimen>
+
     <dimen name="toggle_btn_size">30dp</dimen>
+    <dimen name="toggle_btn_space">3dp</dimen>
 
 </resources>

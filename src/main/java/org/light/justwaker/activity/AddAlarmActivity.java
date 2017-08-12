@@ -1,5 +1,6 @@
-package org.light.justwaker;
+package org.light.justwaker.activity;
 
+import org.light.justwaker.R;
 import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.utility.AlarmUtils;
 

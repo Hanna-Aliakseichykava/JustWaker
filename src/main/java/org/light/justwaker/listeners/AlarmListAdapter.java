@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.light.justwaker.AlarmsListActivity;
+import org.light.justwaker.activity.AlarmsListActivity;
 import org.light.justwaker.R;
 import org.light.justwaker.model.AlarmModel;
 import org.light.justwaker.utility.AlarmUtils;

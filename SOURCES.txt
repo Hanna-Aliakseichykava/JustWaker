@@ -20,6 +20,9 @@ https://github.com/square/android-times-square/
 
 https://plugins.gradle.org/plugin/com.greensopinion.gradle-android-eclipse
 
+https://github.com/ACRA/acra
+https://github.com/ACRA/acra/wiki/BasicSetup
+https://github.com/ACRA/acra/wiki/Report-Destinations#sending-reports-by-email
 
 
 The following table lists which version of Gradle is required for each version of the Android plugin for Gradle
@@ -27,8 +30,3 @@ https://developer.android.com/studio/releases/gradle-plugin.html
 
 
 
-gradle wrapper
-
-//gradlew eclipse --stacktrace
-
-gradlew build

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="redirect_button">#ef8fef</color>
+    <color name="redirect_button">#ff9dc1e0</color>
     <color name="inner_button">#c7d0dd</color>
-    <color name="info_button">#fcdef3</color>
+    <color name="info_button">#ffff99</color>
 
-    <color name="day_selected_text">#ef8fef</color>
+    <color name="day_selected_text">#ffff4d</color>
     <color name="day_deselected_text">#000000</color>
 </resources>

@@ -10,10 +10,12 @@ android:background="@null">
     android:id="@+id/customToggableButton"
 
     android:layout_width="wrap_content"
-    android:layout_height="@dimen/toggle_btn_size"
+    android:layout_height="wrap_content"
+    android:minWidth="@dimen/toggle_btn_size"
+    android:minHeight="@dimen/toggle_btn_size"
 
-    android:paddingLeft="@dimen/small_space"
-    android:paddingRight="@dimen/small_space"
+    android:paddingLeft="@dimen/toggle_btn_space"
+    android:paddingRight="@dimen/toggle_btn_space"
 
     android:layout_marginTop="@dimen/activity_medium_margin"
     android:layout_marginBottom="@dimen/activity_medium_margin"
