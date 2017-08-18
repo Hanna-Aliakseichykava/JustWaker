@@ -82,7 +82,7 @@ android {
 
 	buildTypes {
 		debug {
-			debuggable true
+			debuggable false
 		}
 	}
 }

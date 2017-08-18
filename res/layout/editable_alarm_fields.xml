@@ -49,17 +49,15 @@
             android:text="@string/newAlarmPhraseInfo"
             android:paddingLeft="@dimen/small_space"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_test_phrase"
-            android:layout_width="@dimen/sound_btn_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/sound"
-            android:onClick="testVoice"
+            android:src="@drawable/sound"
+            android:scaleType="centerInside"
             android:layout_marginLeft="@dimen/extra_small_space"
-            android:paddingLeft="@dimen/sound_btn_padding_left"
-            android:paddingRight="@dimen/extra_small_space"
-            android:paddingTop="0dp"
-            android:paddingBottom="3dp"/>
+            android:onClick="testVoice"
+            />
 
     </LinearLayout>
 

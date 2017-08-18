@@ -3,7 +3,7 @@
 
     <string name="app_name">JustWaker</string>
     <string name="title_activity_main">@string/app_name</string>
-    <string name="contacts_email">aleks.anna.ur@gmail.com</string>
+    <string name="contacts_email">org.feather@gmail.com</string>
 
     <string name="action_about">About the program</string>
 
@@ -18,6 +18,7 @@
 
     <string name="about_title">About the program</string>
     <string name="about_text">Alarm Clock\n* Wake up with selected phrase\n* Skip holidays</string>
+    <string name="note_text">Note\n* Phrase should be on the defauld system language\n* Only existing words could be used\n* Some old Android versions could not support some languages then phrase in English should be used</string>
     <string name="dev_text">Development: Hanna Aliakseichykava\nQuality assurance: Zoya Aliakseichykava\nHolidays feature idea: Tatsiana Viarshkoyskaya</string>
     <string name="contacts_text">Feedback:</string>
 
@@ -32,6 +33,5 @@
     <string name="newAlarmLabel">New Alarm</string>
     <string name="newAlarmPhraseInfo">Set up a phrase</string>
     <string name="newAlarmPhrase">Wakey Wakey</string>
-    <string name="wake_up_text">Wakey Wakey</string>
 
 </resources>

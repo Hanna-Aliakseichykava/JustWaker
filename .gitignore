@@ -2,3 +2,5 @@
 bin
 build
 gen
+/hs_err_pid1360.log
+/*.log
