@@ -17,3 +17,5 @@ gradlew build
 gradlew assembleDebug
 
 gradlew assemble
+
+http://java-help.ru/android-studio-create-signed-apk/

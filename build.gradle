@@ -82,7 +82,20 @@ android {
 
 	buildTypes {
 		debug {
-			debuggable false
+			debuggable true
+		}
+	}
+
+	defaultConfig {
+		versionCode 2
+		versionName "1.2-beta"
+	}
+
+	applicationVariants.all { variant ->
+		variant.outputs.each { output ->
+			output.outputFile = new File(
+					output.outputFile.parent,
+					output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
 		}
 	}
 }

@@ -100,7 +100,6 @@ public class WakeUpActivity extends Activity {
 	@Override
 	public void onBackPressed() {
 		isActivityClosed = true;
-		Looper.getMainLooper().quit();
 		super.onBackPressed();
 	}
 }
